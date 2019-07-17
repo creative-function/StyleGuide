@@ -15,6 +15,10 @@ TABLE OF CONTENTS:
 
 /* 0. Reset ================================= */
 @import 'reset';
+@import 'colors';
+@import 'fonts';
+@import 'media';
+
 
 
 /* 1. Main Layout ================================= */
@@ -23,35 +27,33 @@ TABLE OF CONTENTS:
 	box-sizing: border-box;
 }
 
-$stLink: #2342BF;
-$stHeading: #173C5C;
-$stBody: #465461;
-$stGold: #ECA84B;
-$stRed: #D72E2D;
-$stOrange: #EDF7ED;
-$stMint: #EDF7ED;
-
-$fontNun: 'Nunito Sans', sans-serif; //in place of AvenirLTPro-Heavy
-$fontOpen: 'Open Sans', sans-serif; //in place of AvenirLTPro-Roman
-
-$tablet: "(min-width: 600px)";
-$desktop: "(min-width: 1024px)";
-$XLdesktop: "(min-width: 1360px)";
-
-
 
 /* 2. Content ================================= */
 
 	.page_wrapper{
 		display: flex;
-		border:2px solid;
+		max-width: 1250px;
+		margin: 0 auto;
+		
 
-		.column_two{
+		.categories{
 			display: none;
 			@media#{$tablet}{
 				display: block;
-				width:60%;
-				padding:2%;
+				text-decoration: underline;
+				font-family: $fontOpen;
+				font-weight: bold;
+				color:$stSetting;
+			}
+		}
+
+		.column_two{
+			display: none;
+
+			@media#{$tablet}{
+				display: block;
+				width:50%;
+				margin:5%;
 
 				.body_headings{
 					display: flex;
@@ -86,29 +88,33 @@ $XLdesktop: "(min-width: 1360px)";
 								line-height:40px;
 								letter-spacing:-0.75px;
 							}
-						
-							.para_big{
+							
+							.pText{
 								font-family: $fontOpen;
+								width:85%;
+							}
+							.para_big{
 								font-size: 25px;
 								line-height: 31px;
 								letter-spacing:-0.3px;
 							}
 
 							.para_reg{
-								font-family: $fontOpen;
 								font-size: 19px;
 								line-height: 27px;
 							}
 
 							.para_small{
-								font-family: $fontOpen;
 								font-size: 14px;
 								line-height: 19px;
 							}
 				 
 							.default{
-							 color: $stBody;
-							 font-size:1em;
+								margin-top:2%;
+								color: $stSetting;
+								font-size: 12px;
+								font-weight: lighter;
+								font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 							}
 						 }
 					}
@@ -118,6 +124,21 @@ $XLdesktop: "(min-width: 1360px)";
 						.setting{
 							font-family: $fontNun;
 							margin: 27% auto;
+
+							&.settingH5{
+								margin:45% auto;
+							}
+
+							&.settingPbig{
+								margin:35% auto;
+							}
+							&.settingPreg{
+								margin:60% auto;
+							}
+
+							&.settingPsmall{
+								margin:-25% auto;
+							}
 							
 							h4,h5,h6{
 								color: $stHeading;
@@ -148,10 +169,70 @@ $XLdesktop: "(min-width: 1360px)";
 							}
 				 
 							.default{
-							 color: $stBody;
-							 font-size:1em;
+								margin-top:2%;
+								color: $stSetting;
+								font-size: 12px;
+								font-weight: lighter;
+								font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 							}
 						 }
+					}
+				}
+
+				.buttons{
+					display: flex;
+					
+					button{
+						width:170px;
+						height:40px;
+						font-size:14px;
+						margin:5%;
+						border-radius: 5%;
+
+						&.btn1a,&.btn1b{
+							width:170px;
+							height:55px;
+							color:white;
+						}
+
+						&.btn1a{
+							background-color:$stLink;
+						}
+						&.btn2a{
+							background-color:$stLink;
+						}
+						&.btn3a{
+							background-color:$stGray;
+						}
+						&.btn4a{
+							background-color:white;
+							border:3px solid $stBody;
+						}
+
+						&.btn1b{
+							background-color:$stLinkTint;
+						}
+						&.btn2b{
+							background-color:$stLinkTint;
+						}
+						&.btn3b{
+							background-color:$stSetting;
+						}
+						&.btn4b{
+							background-color:$stBody;
+							color:white;
+						}
+
+					}
+
+					.button_reg{
+						width:50%;
+						padding:5%;		
+					}
+
+					.button_hover{
+						width:50%;
+						padding:5%;
 					}
 				}
 			}
@@ -161,15 +242,18 @@ $XLdesktop: "(min-width: 1360px)";
 
 			@media#{$tablet}{
 				width:40%;
-				padding:2%;
+				margin:5%;
 			}
 
 				.font_info{
 					display: none;
 					@media#{$tablet}{
 						display: block;
-						border:2px solid;
+						line-height: 25px;
 						margin:5%;
+						text-decoration: underline;
+						font-family: $fontOpen;
+						color:$stSetting;
 					}
 				}
 			
@@ -177,16 +261,99 @@ $XLdesktop: "(min-width: 1360px)";
 					display: none;
 					@media#{$tablet}{
 						display: flex;
-						border: 2px solid;
-						margin:5%;
+						margin:10% auto;
 				
 						.swatches{
 							width:60%;
-							border: 2px solid;
 						}
 				
 						.swatch_tints{
 							width:40%;
+						}
+
+						.swatch_text{
+							height: 50px;
+							padding:5%;
+
+							p{
+								color:white;
+								font-family: $fontOpen;
+								font-size:18px;
+
+								.tinted{
+									color:black;
+								}
+							}
+
+							.tinted{
+								color:black;
+							}
+
+							&.colorA{
+								background-color:$stLinkTint;
+							}
+
+							&.colorB{
+								background-color:$stHeadingTint;
+							}
+
+							&.colorC{
+								background-color:$stBodyTint;
+							}
+
+							&.colorD{
+								background-color:$stGoldTint;
+							}
+
+							&.colorE{
+								background-color:$stRedTint;
+							}
+
+							&.colorF{
+								background-color:$stOrangeTint;
+							}
+
+							&.colorG{
+								background-color:$stMintTint;
+							}
+
+							&.color1{
+								background-color:$stLink;
+							}
+
+							&.color2{
+								background-color:$stHeading;
+							}
+
+							&.color3{
+								background-color:$stBody;
+							}
+
+							&.color4{
+								background-color:$stGold;
+							}
+
+							&.color5{
+								background-color:$stRed;
+							}
+
+							&.color6{
+								background-color:$stOrange;
+							}
+
+							&.color7{
+								background-color:$stMint;
+							}
+
+							&.color8{
+								background-color:$stGray;
+								width:166.7%;
+
+								p{
+									color:$stHeading;
+								}
+							}
+
 						}
 					}
 				}
@@ -265,8 +432,11 @@ $XLdesktop: "(min-width: 1360px)";
 				   }
 		
 				   .default{
-					color: $stBody;
-					font-size:1em;
+					margin-top:2%;
+					color: $stSetting;
+					font-size: 12px;
+					font-weight: lighter;
+					font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 				   }
 				}
 			}
